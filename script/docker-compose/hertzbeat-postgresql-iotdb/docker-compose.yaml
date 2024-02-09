@@ -35,7 +35,11 @@ services:
     volumes:
         - ./conf/sql:/docker-entrypoint-initdb.d/
         - ./dbdata/pgdata:/var/lib/postgresql/data/pgdata
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "16m"
+        max-file: "16"
     networks:
       - hertzbeat
 
@@ -51,6 +55,11 @@ services:
       - "6667"
     volumes:
       - ./dbdata/iotdbdata:/iotdb/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "16m"
+        max-file: "16"
     networks:
       - hertzbeat
 
@@ -59,6 +68,9 @@ services:
     container_name: compose-hertzbeat
     hostname: hertzbeat
     restart: always
+    ports:
+      - "1157:1157"
+      - "1158:1158"
     environment:
       TZ: Asia/Shanghai
       LANG: zh_CN.UTF-8
@@ -68,8 +80,10 @@ services:
     volumes:
       - ./conf/application.yml:/opt/hertzbeat/config/application.yml
       - ./conf/sureness.yml:/opt/hertzbeat/config/sureness.yml
-    ports:
-      - "1157:1157"
-      - "1158:1158"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "16m"
+        max-file: "16"
     networks:
       - hertzbeat
