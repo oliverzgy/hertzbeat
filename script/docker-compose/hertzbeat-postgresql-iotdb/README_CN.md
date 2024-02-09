@@ -20,8 +20,12 @@
 1. 下载hertzbeat-docker-compose安装部署脚本文件  
    脚本文件位于代码仓库下`script/docker-compose/hertzbeat-postgre-iotdb` 链接 [script/docker-compose](https://gitee.com/dromara/hertzbeat/tree/master/script/docker-compose/hertzbeat-postgre-iotdb)   
 
+2. 进入conf目录，创建并更新配置文件
 
-2. 进入部署脚本 docker-compose 目录, 执行  
+   `cp application.yml.example application.yml`
+   `cp sureness.yml.example sureness.yml`
+
+3. 进入部署脚本 docker-compose 目录, 执行  
 
    `docker compose up -d`
 
