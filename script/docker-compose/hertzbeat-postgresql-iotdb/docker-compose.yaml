@@ -31,8 +31,11 @@ services:
         - POSTGRES_USER=root
         - POSTGRES_PASSWORD=123456
         - TZ=Asia/Shanghai
+        - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
         - ./conf/sql:/docker-entrypoint-initdb.d/
+        - ./dbdata/pgdata:/var/lib/postgresql/data/pgdata
+
     networks:
       - hertzbeat
 
