@@ -50,3 +50,5 @@ node_modules
 # debug env
 application-dev.yml
 application-mysql.yml
+/script/docker-compose/hertzbeat-postgresql-iotdb/conf/application.yml
+/script/docker-compose/hertzbeat-postgresql-iotdb/conf/sureness.yml
